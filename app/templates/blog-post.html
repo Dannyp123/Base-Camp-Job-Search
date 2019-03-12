@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% block body %}
+
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark  bg-bcca-color">
+    <span class="text-white bg-bcca-color">Base Camp Coding Academy</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="ml-3">
+            <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-bcca" href="{% url 'new-post' %}"><span class="text-bcca">Apply</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-bcca" href="{% url 'home' %}"><span class="text-bcca">Home</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="card-body text-left ml-3">
+    <h2 class="text-dark pb-1">{{ blog_post.title }}</h2>
+    <h4 class="text-dark pb-2">{{ blog_post.author }} - {{ blog_post.date }}</h4>
+    <p class="pb-4">
+        {{ blog_post.body }}
+    </p>
+</div>
+</div>
+<div class="card mt-2">
+    <h1 class="text-center text-dark pt-4 font-weight-bold">Comments</h1>
+    {% for c in blog_post.blogcomment_set.all %}
+    <h2 class="p-3 text-success">This comment recieved {{c.rating}} out of 5 stars.</h2>
+    <h3 class="p-3">Title: {{ c.title }}</h3>
+    <h4 class="p-3">By: {{ c.author }} - {{ c.date }}</h4>
+    <p class="p-3">{{c.body}}</p>
+    <hr>
+    {% endfor %}
+</div>
+<div>
+    <a role="button" href="{% url 'make-comment' blog_post.id %}" class="btn btn-primary text-white my-3">Make
+        A
+        Comment</a>
+    <a role="button" href="{% url 'home' %}" class="btn btn-primary text-white my-3">Go Back</a>
+</div>
+</div>
+<div class="col"></div>
+
+</div>
+
+{% endblock body %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block body %}
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark  bg-bcca-color">
+    <span class="text-white bg-bcca-color">Base Camp Coding Academy</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="ml-3">
+            <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-bcca" href="{% url 'new-post' %}"><span class="text-bcca">Apply</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-bcca" href="{% url 'home' %}"><span class="text-bcca">Home</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container my-4">
+    <div class="card text-left ml-3">
+        <div class="card-body">
+            {% for post in blog_post %}
+            <a id="links" href="{% url 'blog-post' post.id %}">
+                <h2 class="text-dark pb-1">{{ post.title }}</h2>
+                <h4 class="text-dark pb-2">{{ post.author }} - {{ post.date }}</h4>
+                <p class="pb-4">
+                    {{ post.body | truncatechars:100 }}
+                </p>
+            </a>
+            <hr>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="align-content-center">
+    <a role="button" class="btn btn-success mb-5 ml-4" href="{% url 'new-post' %}">
+        <h5>New Post!</h5>
+    </a>
+</div>
+{% endblock body %}
+</div>

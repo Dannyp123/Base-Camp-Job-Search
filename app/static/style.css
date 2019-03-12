@@ -1,0 +1,53 @@
+#links {
+    text-decoration: none
+}
+
+.bg-bcca-color {
+
+    background-color: #3b1b0c
+}
+
+.text-bcca {
+
+    color: #999d98
+}
+
+.link-notLIne {
+
+    text-decoration: none
+}
+
+.text-bcca:hover {
+
+    color: white;
+
+}
+
+.bccaClassImg {
+    max-width: 100%;
+
+    height: auto;
+
+}
+
+#headerBkgImg {
+    max-width: 100%;
+    background-image: url("/static/imgs/BaseCamp_HeaderFeature_1.jpg");
+    background-position: center;
+    height: 132px;
+}
+
+#headerImg {
+    vertical-align: middle;
+
+}
+
+.center-spacer {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle
+}
+
+.fill {
+    text-align: center;
+}
