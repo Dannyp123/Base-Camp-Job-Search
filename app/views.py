@@ -9,7 +9,7 @@ from django.shortcuts import redirect, render
 class HomePage(View):
     def get(self, request):
         return render(request, "home.html",
-                      {"blog_post": models.BlogPost.objects.all()})
+                      {"job_post": models.BlogPost.objects.all()})
 
 
 class NewPostCreate(View):
@@ -33,7 +33,7 @@ class NewPostCreate(View):
 class BlogPostDetail(View):
     def get(self, request, id):
         return render(request, 'blog-post.html',
-                      {'blog_post': models.BlogPost.objects.get(id=id)})
+                      {'job_post': models.BlogPost.objects.get(id=id)})
 
 
 class MakingComments(View):
