@@ -21,8 +21,11 @@
 </nav>
 <div class="container my-4">
     <div class="card text-left ml-3">
+        <div class="card-header">
+            <h1 class="text-dark text-center">Available Jobs</h1>
+        </div>
         <div class="card-body">
-            {% for post in blog_post %}
+            {% for post in job_post %}
             <a id="links" href="{% url 'blog-post' post.id %}">
                 <h2 class="text-dark pb-1">{{ post.title }}</h2>
                 <h4 class="text-dark pb-2">{{ post.author }} - {{ post.date }}</h4>
@@ -35,7 +38,7 @@
         </div>
     </div>
 </div>
-<div class="align-content-center">
+<div class="container">
     <a role="button" class="btn btn-success mb-5 ml-4" href="{% url 'new-post' %}">
         <h5>New Post!</h5>
     </a>
