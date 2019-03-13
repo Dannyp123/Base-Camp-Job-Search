@@ -18,6 +18,7 @@ from app import views
 
 urlpatterns = [
     path("", views.HomePage.as_view(), name="home"),
+    path("students", views.Students.as_view(), name="students"),
     path('posts/create/', views.NewPostCreate.as_view(), name='new-post'),
     path('posts/<int:id>/', views.BlogPostDetail.as_view(), name='blog-post'),
     path(
