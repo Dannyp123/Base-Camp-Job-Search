@@ -36,7 +36,6 @@ class BlogComment(models.Model):
     body = models.TextField()
     author = models.TextField()
     date = models.DateField(auto_now_add=True)
-    rating = models.IntegerField()
     blog_post = models.ForeignKey(BlogPost, on_delete=models.PROTECT)
 
     def __str__(self):
@@ -44,17 +43,15 @@ class BlogComment(models.Model):
         Title: {}
         Author: {}
         Body: {}
-        Rating: {}
         Date: {}
         Comment for Blog #: {}
-        '''.format(self.title, self.author, self.body, self.rating, self.date,
+        '''.format(self.title, self.author, self.body, self.date,
                    self.blog_post)
 
     @staticmethod
-    def submit_comment(title, body, author, rating, blog_post_id):
+    def submit_comment(title, body, author, blog_post_id):
         BlogComment(
             title=title,
             body=body,
             author=author,
-            rating=rating,
             blog_post_id=blog_post_id).save()

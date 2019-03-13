@@ -12,6 +12,11 @@ class HomePage(View):
                       {"job_post": models.BlogPost.objects.all()})
 
 
+class Students(View):
+    def get(self, request):
+        return render(request, "students.html")
+
+
 class NewPostCreate(View):
     def get(self, request):
         return render(request, 'new-post.html', {'form': forms.BlogPostForm()})
@@ -39,16 +44,15 @@ class BlogPostDetail(View):
 class MakingComments(View):
     def get(self, request, id):
         return render(request, 'comment.html',
-                      {"form": forms.BlogComjdsfjmentForm()})
+                      {"form": forms.BlogCommentForm()})
 
     def post(self, request, id):
         form = forms.BlogCommentForm(data=request.POST)
         if form.is_valid():
             title = form.cleaned_data['title']
-            rating = form.cleaned_data['rating']
             author = form.cleaned_data['author']
             body = form.cleaned_data['body']
-            models.BlogComment.submit_comment(title, body, author, rating, id)
+            models.BlogComment.submit_comment(title, body, author, id)
             return redirect('home')
         else:
             return render(request, 'comment.html', {'form': form})
