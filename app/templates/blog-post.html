@@ -27,26 +27,23 @@
         {{ job_post.body }}
     </p>
 </div>
+<div class="container">
+    <div class="card mt-2">
+        <h1 class="text-center text-dark pt-4 font-weight-bold">Comments</h1>
+        {% for c in job_post.blogcomment_set.all %}
+        <h3 class="p-3">Title: {{ c.title }}</h3>
+        <h4 class="p-3">By: {{ c.author }} - {{ c.date }}</h4>
+        <p class="p-3">{{c.body}}</p>
+        <hr>
+        {% endfor %}
+    </div>
+    <div>
+        <a role="button" href="{% url 'make-comment' job_post.id %}" class="btn btn-primary text-white my-3">Make
+            A
+            Comment</a>
+        <a role="button" href="{% url 'home' %}" class="btn btn-primary text-white my-3">Go Back</a>
+    </div>
 </div>
-<div class="card mt-2">
-    <h1 class="text-center text-dark pt-4 font-weight-bold">Comments</h1>
-    {% for c in job_post.blogcomment_set.all %}
-    <h2 class="p-3 text-success">This comment recieved {{c.rating}} out of 5 stars.</h2>
-    <h3 class="p-3">Title: {{ c.title }}</h3>
-    <h4 class="p-3">By: {{ c.author }} - {{ c.date }}</h4>
-    <p class="p-3">{{c.body}}</p>
-    <hr>
-    {% endfor %}
-</div>
-<div>
-    <a role="button" href="{% url 'make-comment' job_post.id %}" class="btn btn-primary text-white my-3">Make
-        A
-        Comment</a>
-    <a role="button" href="{% url 'home' %}" class="btn btn-primary text-white my-3">Go Back</a>
-</div>
-</div>
-<div class="col"></div>
 
-</div>
 
 {% endblock body %}
