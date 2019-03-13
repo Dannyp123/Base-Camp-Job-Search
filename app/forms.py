@@ -16,13 +16,16 @@ class BlogPostForm(forms.Form):
         widget=forms.TextInput(attrs={'class': 'form-control mb-3'}))
     body = forms.CharField(
         label="Post Body:",
-        widget=forms.TextInput(attrs={'class': 'form-control mb-3'}))
+        widget=forms.Textarea(attrs={'class': 'form-control mb-3'}))
 
 
 class BlogCommentForm(forms.Form):
-    title = forms.CharField(label="Title:")
-    rating = forms.IntegerField(label="Rating:", max_value=5, min_value=1)
-    author = forms.CharField(label="Author:")
+    title = forms.CharField(
+        label="Comment Title:",
+        widget=forms.TextInput(attrs={'class': 'form-control mb-3'}))
+    author = forms.CharField(
+        label="Writer's Name:",
+        widget=forms.TextInput(attrs={'class': 'form-control mb-3'}))
     body = forms.CharField(
         label="Comment Body:",
-        widget=forms.Textarea(attrs={'placeholder': 'Insert comment Here'}))
+        widget=forms.Textarea(attrs={'class': 'form-control mb-3'}))
