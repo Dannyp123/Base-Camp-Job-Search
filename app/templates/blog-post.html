@@ -21,16 +21,16 @@
     </div>
 </nav>
 <div class="card-body text-left ml-3">
-    <h2 class="text-dark pb-1">{{ blog_post.title }}</h2>
-    <h4 class="text-dark pb-2">{{ blog_post.author }} - {{ blog_post.date }}</h4>
+    <h2 class="text-dark pb-1">{{ job_post.title }}</h2>
+    <h4 class="text-dark pb-2">{{ job_post.author }} - {{ job_post.date }}</h4>
     <p class="pb-4">
-        {{ blog_post.body }}
+        {{ job_post.body }}
     </p>
 </div>
 </div>
 <div class="card mt-2">
     <h1 class="text-center text-dark pt-4 font-weight-bold">Comments</h1>
-    {% for c in blog_post.blogcomment_set.all %}
+    {% for c in job_post.blogcomment_set.all %}
     <h2 class="p-3 text-success">This comment recieved {{c.rating}} out of 5 stars.</h2>
     <h3 class="p-3">Title: {{ c.title }}</h3>
     <h4 class="p-3">By: {{ c.author }} - {{ c.date }}</h4>
@@ -39,7 +39,7 @@
     {% endfor %}
 </div>
 <div>
-    <a role="button" href="{% url 'make-comment' blog_post.id %}" class="btn btn-primary text-white my-3">Make
+    <a role="button" href="{% url 'make-comment' job_post.id %}" class="btn btn-primary text-white my-3">Make
         A
         Comment</a>
     <a role="button" href="{% url 'home' %}" class="btn btn-primary text-white my-3">Go Back</a>
