@@ -25,17 +25,17 @@
     <img id="headerImg" src="/static/images/header-logo.png">
 </div>
 
-        {% csrf_token %}
-    <div class="container text-left ml-3 my-4">
-        <h1 class="text-dark pb-1">{{ job_post.title }}</h1>
-        <h2 class="text-dark pb-2">{{ job_post.location }}</h2>
-        <h3 class="text-dark pb-2">{{ job_post.author }} - {{ job_post.date }}</h3>
-        <h4 class="text-dark pb-2">{{ job_post.benefits }}</h4>
+{% csrf_token %}
+<div class="container text-left ml-3 my-4">
+    <h1 class="text-dark pb-1">{{ job_post.title }}</h1>
+    <h3 class="text-dark pb-2">{{ job_post.townName }}</h3>
+    <h3 class="text-dark pb-2">{{ job_post.author }} - {{ job_post.date }}</h3>
+    <h4 class="text-dark pb-2">{{ job_post.benefits }}</h4>
 
-        <p class="pb-4">
-            {{ job_post.body }}
-        </p>
-    </div>
+    <p class="pb-4">
+        {{ job_post.body }}
+    </p>
+</div>
 <div class="container mb-3">
     <div class="card mt-2">
         <div class="card-header">
@@ -47,9 +47,9 @@
             <h4 class="p-3">By: {{ c.author }} - {{ c.date }}</h4>
             <p class="p-3">{{c.body}}</p>
             <form action="{% url 'delete-comment' c.id %}" method="POST">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-danger mb-3">Delete</button>
-                </form>
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger mb-3">Delete</button>
+            </form>
             <hr>
             {% endfor %}
         </div>
