@@ -51,3 +51,8 @@
 .fill {
     text-align: center;
 }
+
+.userImg {
+    width: 75px;
+    height: 75px;
+}
