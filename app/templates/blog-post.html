@@ -46,6 +46,10 @@
             <h3 class="p-3">Title: {{ c.title }}</h3>
             <h4 class="p-3">By: {{ c.author }} - {{ c.date }}</h4>
             <p class="p-3">{{c.body}}</p>
+            <form action="{% url 'delete-comment' c.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger mb-3">Delete</button>
+                </form>
             <hr>
             {% endfor %}
         </div>

@@ -30,12 +30,14 @@
     </div>
     <div class="card text-left mx-3 mb-3">
         <div class="card-header">
+            {% if job_post|length == 0 %}
+            <h1 class="text-danger text-center">Sorry, there are no new jobs.</h1>
+            {% else %}
             <h1 class="text-dark text-center">Available Jobs</h1>
+            {% endif %}
+            <!-- <button class="btn btn-primary">Order by date</button> -->
         </div>
         <div class="card-body">
-            {% if job_post|length == 0 %}
-            <h1 class="text-danger">Sorry, no new jobs!</h1>
-            {% endif %}
             {% for post in job_post %}
             <form action="{% url 'delete-job' post.id %}" method="POST">
                 {% csrf_token %}
@@ -43,7 +45,7 @@
             </form>
 
             <a id="links" href="{% url 'blog-post' post.id %}">
-                <h2 class="text-dark my-1">{{ post.title }}, {{ post.location }}</h2>
+                <h2 class="text-dark my-1">{{ post.title }}, {{ post.townName }}</h2>
                 <h4 class="text-dark pb-2">{{ post.author }} - {{ post.date }}</h4>
 
                 <p class="mb-2">
