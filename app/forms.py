@@ -7,9 +7,21 @@ class BlogPostForm(forms.Form):
         widget=forms.TextInput(attrs={'class': 'form-control mb-3'}))
     author = forms.CharField(
         label="Employer Name:",
+        widget=forms.TextInput(attrs={'class': 'form-control mb-5'}))
+    streetNum = forms.CharField(
+        label='Street number:',
         widget=forms.TextInput(attrs={'class': 'form-control mb-3'}))
-    location = forms.CharField(
-        label='Job Location:',
+    streetName = forms.CharField(
+        label='Street name:',
+        widget=forms.TextInput(attrs={'class': 'form-control mb-3'}))
+    townName = forms.CharField(
+        label='Town Name:',
+        widget=forms.TextInput(attrs={'class': 'form-control mb-3'}))
+    state = forms.CharField(
+        label='State:',
+        widget=forms.TextInput(attrs={'class': 'form-control mb-3'}))
+    zipCode = forms.CharField(
+        label="Zip Code: ",
         widget=forms.TextInput(attrs={'class': 'form-control mb-3'}))
     postion = forms.CharField(
         label="Employer's Current Postion:",

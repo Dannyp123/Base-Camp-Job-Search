@@ -26,12 +26,17 @@ class NewPostCreate(View):
         if form.is_valid():
             title = form.cleaned_data['title']
             author = form.cleaned_data['author']
-            location = form.cleaned_data["location"]
             postion = form.cleaned_data["postion"]
             benefits = form.cleaned_data["benefits"]
+            streetName = form.cleaned_data["streetName"]
+            streetNum = form.cleaned_data["streetNum"]
+            townName = form.cleaned_data["townName"]
+            state = form.cleaned_data["state"]
+            zipCode = form.cleaned_data["zipCode"]
             body = form.cleaned_data['body']
-            models.BlogPost.submit_post(title, author, location, postion,
-                                        benefits, body)
+            models.BlogPost.submit_post(title, author, postion,
+                                        benefits, streetName, streetNum, townName, state,
+                                        zipCode, body)
             return redirect('home')
         else:
             return render(request, 'new-post.html', {'form': form})
@@ -64,3 +69,9 @@ class MakingComments(View):
             return redirect('home')
         else:
             return render(request, 'comment.html', {'form': form})
+
+
+class CommentDelete(View):
+    def post(self, request, id):
+        models.BlogComment.objects.get(id=id).delete()
+        return redirect("home")

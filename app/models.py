@@ -5,9 +5,13 @@ from django.db import models
 class BlogPost(models.Model):
     title = models.TextField()
     author = models.TextField()
-    location = models.TextField()
     postion = models.TextField()
     benefits = models.TextField()
+    streetNum = models.IntegerField()
+    streetName = models.TextField()
+    townName = models.TextField()
+    state = models.TextField()
+    zipCode = models.IntegerField()
     body = models.TextField()
     date = models.DateField(auto_now_add=True)
 
@@ -16,24 +20,33 @@ class BlogPost(models.Model):
         Title: {}
         Job Desciption: {}
         Postion: {}
-        Location: {}
         Benefits: {}
+        Street Name: {}
+        Street Num: {}
+        Town Name: {}
+        State: {} 
+        Zip Code: {}
         Author: {}
         Date: {}
         
-        '''.format(self.title, self.body, self.postion, self.location,
-                   self.benefits, self.author, self.date)
+        '''.format(self.title, self.body, self.postion, self.benefits,
+                   self.streetName, self.streetNum, self.townName, self.state,
+                   self.zipCode, self.author, self.date)
 
     @staticmethod
-    def submit_post(title, author, location, postion, benefits, body):
+    def submit_post(title, author, postion, benefits, streetName, streetNum,
+                    townName, state, zipCode, body):
         BlogPost(
             title=title,
             author=author,
-            location=location,
             postion=postion,
             benefits=benefits,
+            streetName=streetName,
+            streetNum=streetNum,
+            townName=townName,
+            state=state,
+            zipCode=zipCode,
             body=body).save()
-    
 
 
 class BlogComment(models.Model):

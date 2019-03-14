@@ -28,5 +28,9 @@ urlpatterns = [
     path(
         'posts/<int:id>/comment',
         views.MakingComments.as_view(),
-        name='make-comment')
+        name='make-comment'),
+    path(
+        'posts/<int:id>/delete/comment',
+        views.CommentDelete.as_view(),
+        name='delete-comment')
 ]
