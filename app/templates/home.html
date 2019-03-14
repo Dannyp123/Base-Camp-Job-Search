@@ -33,12 +33,15 @@
             <h1 class="text-dark text-center">Available Jobs</h1>
         </div>
         <div class="card-body">
-
+            {% if job_post|length == 0 %}
+            <h1 class="text-danger">Sorry, no new jobs!</h1>
+            {% endif %}
             {% for post in job_post %}
             <form action="{% url 'delete-job' post.id %}" method="POST">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-danger mb-3">Delete</button>
             </form>
+
             <a id="links" href="{% url 'blog-post' post.id %}">
                 <h2 class="text-dark my-1">{{ post.title }}, {{ post.location }}</h2>
                 <h4 class="text-dark pb-2">{{ post.author }} - {{ post.date }}</h4>
