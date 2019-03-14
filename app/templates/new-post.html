@@ -26,11 +26,14 @@
 </div>
 <div class="container my-4">
     <div class="card">
-        <div class="card-header"><h1 class="text-center">New Job Posting</h1></div>
+        <div class="card-header">
+            <h1 class="text-center">New Job Posting</h1>
+        </div>
         <div class="card-body">
             <form action="{% url 'new-post' %}" method="POST">
                 {% csrf_token %}
                 {{form}}
+
                 <div class="d-flex justify-content-around">
                     <button type="submit" class="btn btn-success my-3">Submit</button>
                     <a role="button" href="{% url 'home' %}" class="btn btn-primary text-white my-3">Go Back</a>
