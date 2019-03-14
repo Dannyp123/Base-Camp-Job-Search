@@ -2,6 +2,9 @@ from django import forms
 
 
 class BlogPostForm(forms.Form):
+    image = forms.URLField(
+        label="User Image:",
+        widget=forms.TextInput(attrs={'class': 'form-control mb-3'}))
     title = forms.CharField(
         label="Job Title:",
         widget=forms.TextInput(attrs={'class': 'form-control mb-3'}))
@@ -22,7 +25,7 @@ class BlogPostForm(forms.Form):
         widget=forms.TextInput(attrs={'class': 'form-control mb-3'}))
     zipCode = forms.CharField(
         label="Zip Code: ",
-        widget=forms.TextInput(attrs={'class': 'form-control mb-3'}))
+        widget=forms.TextInput(attrs={'class': 'form-control mb-5'}))
     postion = forms.CharField(
         label="Employer's Current Postion:",
         widget=forms.TextInput(attrs={'class': 'form-control mb-3'}))

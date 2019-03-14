@@ -24,6 +24,7 @@ class NewPostCreate(View):
     def post(self, request):
         form = forms.BlogPostForm(data=request.POST)
         if form.is_valid():
+            image = form.cleaned_data['image']
             title = form.cleaned_data['title']
             author = form.cleaned_data['author']
             postion = form.cleaned_data["postion"]

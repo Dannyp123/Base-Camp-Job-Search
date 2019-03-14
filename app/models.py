@@ -3,6 +3,7 @@ from django.db import models
 
 # Create your models here.
 class BlogPost(models.Model):
+    image = models.URLField()
     title = models.TextField()
     author = models.TextField()
     postion = models.TextField()
@@ -17,6 +18,7 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return '''
+        Image: {}
         Title: {}
         Job Desciption: {}
         Postion: {}
@@ -29,14 +31,16 @@ class BlogPost(models.Model):
         Author: {}
         Date: {}
         
-        '''.format(self.title, self.body, self.postion, self.benefits,
-                   self.streetName, self.streetNum, self.townName, self.state,
-                   self.zipCode, self.author, self.date)
+        '''.format(self.image, self.title, self.body, self.postion,
+                   self.benefits, self.streetName, self.streetNum,
+                   self.townName, self.state, self.zipCode, self.author,
+                   self.date)
 
     @staticmethod
-    def submit_post(title, author, postion, benefits, streetName, streetNum,
-                    townName, state, zipCode, body):
+    def submit_post(image, title, author, postion, benefits, streetName,
+                    streetNum, townName, state, zipCode, body):
         BlogPost(
+            image=image,
             title=title,
             author=author,
             postion=postion,
