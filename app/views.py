@@ -35,9 +35,9 @@ class NewPostCreate(View):
             state = form.cleaned_data["state"]
             zipCode = form.cleaned_data["zipCode"]
             body = form.cleaned_data['body']
-            models.BlogPost.submit_post(title, author, postion,
-                                        benefits, streetName, streetNum, townName, state,
-                                        zipCode, body)
+            models.BlogPost.submit_post(image, title, author, postion,
+                                        benefits, streetName, streetNum,
+                                        townName, state, zipCode, body)
             return redirect('home')
         else:
             return render(request, 'new-post.html', {'form': form})
