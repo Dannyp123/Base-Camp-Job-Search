@@ -22,6 +22,10 @@ urlpatterns = [
     path('posts/create/', views.NewPostCreate.as_view(), name='new-post'),
     path('posts/<int:id>/', views.BlogPostDetail.as_view(), name='blog-post'),
     path(
+        'posts/<int:id>/delete',
+        views.BlogPostDelete.as_view(),
+        name='delete-job'),
+    path(
         'posts/<int:id>/comment',
         views.MakingComments.as_view(),
         name='make-comment')

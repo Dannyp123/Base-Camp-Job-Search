@@ -28,8 +28,10 @@ class NewPostCreate(View):
             author = form.cleaned_data['author']
             location = form.cleaned_data["location"]
             postion = form.cleaned_data["postion"]
+            benefits = form.cleaned_data["benefits"]
             body = form.cleaned_data['body']
-            models.BlogPost.submit_post(title, author, location, postion, body)
+            models.BlogPost.submit_post(title, author, location, postion,
+                                        benefits, body)
             return redirect('home')
         else:
             return render(request, 'new-post.html', {'form': form})
@@ -39,6 +41,12 @@ class BlogPostDetail(View):
     def get(self, request, id):
         return render(request, 'blog-post.html',
                       {'job_post': models.BlogPost.objects.get(id=id)})
+
+
+class BlogPostDelete(View):
+    def post(self, request, id):
+        models.BlogPost.objects.get(id=id).delete()
+        return redirect("home")
 
 
 class MakingComments(View):
