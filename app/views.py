@@ -49,6 +49,7 @@ class BlogPostDetail(View):
                       {'job_post': models.BlogPost.objects.get(id=id)})
 
 
+
 class BlogPostDelete(View):
     def post(self, request, id):
         models.BlogPost.objects.get(id=id).delete()
