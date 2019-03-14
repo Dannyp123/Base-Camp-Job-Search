@@ -12,7 +12,10 @@ class BlogPostForm(forms.Form):
         label='Job Location:',
         widget=forms.TextInput(attrs={'class': 'form-control mb-3'}))
     postion = forms.CharField(
-        label='Current Postion:',
+        label="Employer's Current Postion:",
+        widget=forms.TextInput(attrs={'class': 'form-control mb-3'}))
+    benefits = forms.CharField(
+        label="Job Benefits:",
         widget=forms.TextInput(attrs={'class': 'form-control mb-3'}))
     body = forms.CharField(
         label="Post Body:",
