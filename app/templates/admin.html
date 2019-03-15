@@ -1,0 +1,75 @@
+{% extends 'base.html' %} {% block body %}
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark  bg-bcca-color">
+    <span class="text-white bg-bcca-color">Base Camp Coding Academy</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="ml-3">
+            <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-bcca" href="{% url 'students' %}"><span class="text-bcca">Student
+                            Portfolios</span></a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<div id="headerBkgImg" class="fill">
+    <span class="center-spacer"></span>
+    <img id="headerImg" src="/static/images/header-logo.png">
+</div>
+
+<div class="container my-4">
+
+    <div class="container">
+        <a role="button" class="btn btn-success mb-4" href="{% url 'new-post' %}">
+            <h5>New Post!</h5>
+        </a>
+    </div>
+    <div class="card text-left mx-3 mb-3">
+        <div class="card-header">
+            {% if job_post|length == 0 %}
+            <h1 class="text-danger text-center">Sorry, there are no new jobs.</h1>
+            {% else %}
+            <h1 class="text-dark text-center">Available Jobs</h1>
+            {% endif %}
+            <!-- <button class="btn btn-primary">Order by date</button> -->
+        </div>
+        <div class="card-body">
+            {% for post in job_post %}
+
+
+            <a id="links" href="{% url 'blog-post' post.id %}">
+                <div class="d-flex">
+                    <img src="{{ post.image }}" alt="Image" class="userImg my-3">
+
+                    <h2 class="text-dark ml-4 mt-3">{{ post.title }}</h2>
+
+                </div>
+                <h4 class="text-dark pb-1">{{ post.author }} - {{ post.date }}</h4>
+                <h4 class="text-dark pb-1">{{ post.townName }}</h4>
+
+
+
+                <p class="mb-4 font-weight-bold text-dark">
+                    {{ post.body | truncatechars:125 }}
+                </p>
+            </a>
+            <form action="{% url 'delete-job' post.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger mb-3">Delete</button>
+            </form>
+
+            <hr>
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
+</div>
