@@ -15,13 +15,14 @@ class AdminPage(View):
     def get(self, request):
         return render(
             request, "admin.html",
-            {"job_post": models.BlogPost.objects.all().order_by('-date')})
+            {"job_post": models.BlogPost.objects.all().order_by("title")})
 
 
 class JobPage(View):
     def get(self, request):
-        return render(request, "jobs.html",
-                      {"job_post": models.BlogPost.objects.all()})
+        return render(
+            request, "jobs.html",
+            {"job_post": models.BlogPost.objects.all().order_by('-date')})
 
 
 class Students(View):
@@ -79,7 +80,7 @@ class MakingComments(View):
             author = form.cleaned_data['author']
             body = form.cleaned_data['body']
             models.BlogComment.submit_comment(title, body, author, id)
-            return redirect('jobs')
+            return redirect('admin')
         else:
             return render(request, 'comment.html', {'form': form})
 
