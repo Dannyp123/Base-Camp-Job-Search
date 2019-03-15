@@ -3,6 +3,7 @@ from django.views import View
 from app import forms
 from app import models
 from django.shortcuts import redirect, render
+from django.db.models import Q
 
 
 # Create your views here.
@@ -13,9 +14,16 @@ class LandingPage(View):
 
 class AdminPage(View):
     def get(self, request):
-        return render(
-            request, "admin.html",
-            {"job_post": models.BlogPost.objects.all().order_by("-date")})
+        query_list = models.BlogPost.objects.all()
+        query = request.GET.get("q")
+        if query:
+            query_list = query_list.filter(
+                Q(title__contains=query) | Q(author__contains=query)
+                | Q(state__contains=query)
+                | Q(body__contains=query)).distinct()
+
+        return render(request, "admin.html",
+                      {"job_post": query_list.order_by("-date")})
 
 
 class JobPage(View):

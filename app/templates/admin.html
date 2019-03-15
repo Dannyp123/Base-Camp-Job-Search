@@ -30,11 +30,18 @@
 </div>
 
 <div class="container my-4">
-
-    <div class="container">
-        <a role="button" class="btn btn-success mb-4" href="{% url 'new-post' %}">
-            <h5>New Post!</h5>
-        </a>
+    <div class="d-flex">
+        <div class="container">
+            <a role="button" class="btn btn-success mb-4" href="{% url 'new-post' %}">
+                <h5>New Post!</h5>
+            </a>
+        </div>
+        <form class="container" action="" method="GET">
+            <span class="d-flex">
+                <input type="text" name="q" class="form-control col-8" value="{{ request.GET.q }}">
+                <input type="submit" value="Search" class="ml-3 mb-4 btn btn-success">
+            </span>
+        </form>
     </div>
     <div class="card text-left mx-3 mb-3">
         <div class="card-header">
