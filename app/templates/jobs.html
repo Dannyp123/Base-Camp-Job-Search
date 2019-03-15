@@ -48,7 +48,7 @@
 
 
             <p class="mb-4 font-weight-bold text-dark">
-                {{ post.body | truncatechars:125 }}
+                {{ post.body | truncatechars:225 }}
             </p>
             <br>
             {% if post.blogcomment_set.all|length == 0 %}
@@ -58,9 +58,11 @@
             {% endif %}
 
             {% for c in post.blogcomment_set.all %}
-            <h4 class="p-3">Title: {{ c.title }}</h4>
-            <h5 class="p-3">By: {{ c.author }} - {{ c.date }}</h5>
-            <p class="p-3">{{c.body}}</p>
+            <div class="text-center">
+                <h4 class="p-3">Title: {{ c.title }}</h4>
+                <h5 class="p-3">By: {{ c.author }} - {{ c.date }}</h5>
+                <p class="p-3">{{c.body}}</p>
+            </div>
             <hr>
             {% endfor %}
             {% endfor %}

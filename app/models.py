@@ -11,7 +11,7 @@ class BlogPost(models.Model):
     streetNum = models.IntegerField()
     streetName = models.TextField()
     townName = models.TextField()
-    state = models.TextField()
+    state = models.TextField(max_length=2)
     zipCode = models.IntegerField()
     body = models.TextField()
     date = models.DateField(auto_now_add=True)

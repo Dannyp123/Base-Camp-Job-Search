@@ -15,7 +15,7 @@ class AdminPage(View):
     def get(self, request):
         return render(
             request, "admin.html",
-            {"job_post": models.BlogPost.objects.all().order_by("title")})
+            {"job_post": models.BlogPost.objects.all().order_by("-date")})
 
 
 class JobPage(View):
