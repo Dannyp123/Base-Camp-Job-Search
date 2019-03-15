@@ -40,7 +40,12 @@
 <div class="container mb-3">
     <div class="card mt-2">
         <div class="card-header">
+            {% if job_post.blogcomment_set.all|length == 0 %}
+            <h2 class="text-danger text-center">No Comments</h2>
+            {% else %}
             <h2 class="text-center">Comments</h2>
+
+            {% endif %}
         </div>
         <div class="card-body">
             {% for c in job_post.blogcomment_set.all %}
