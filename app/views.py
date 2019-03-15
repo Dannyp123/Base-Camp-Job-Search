@@ -6,9 +6,21 @@ from django.shortcuts import redirect, render
 
 
 # Create your views here.
-class HomePage(View):
+class LandingPage(View):
     def get(self, request):
-        return render(request, "home.html",
+        return render(request, "landing.html")
+
+
+class AdminPage(View):
+    def get(self, request):
+        return render(
+            request, "admin.html",
+            {"job_post": models.BlogPost.objects.all().order_by('-date')})
+
+
+class JobPage(View):
+    def get(self, request):
+        return render(request, "jobs.html",
                       {"job_post": models.BlogPost.objects.all()})
 
 
@@ -38,7 +50,7 @@ class NewPostCreate(View):
             models.BlogPost.submit_post(image, title, author, postion,
                                         benefits, streetName, streetNum,
                                         townName, state, zipCode, body)
-            return redirect('home')
+            return redirect('admin')
         else:
             return render(request, 'new-post.html', {'form': form})
 
@@ -49,11 +61,10 @@ class BlogPostDetail(View):
                       {'job_post': models.BlogPost.objects.get(id=id)})
 
 
-
 class BlogPostDelete(View):
     def post(self, request, id):
         models.BlogPost.objects.get(id=id).delete()
-        return redirect("home")
+        return redirect("admin")
 
 
 class MakingComments(View):
@@ -68,7 +79,7 @@ class MakingComments(View):
             author = form.cleaned_data['author']
             body = form.cleaned_data['body']
             models.BlogComment.submit_comment(title, body, author, id)
-            return redirect('home')
+            return redirect('jobs')
         else:
             return render(request, 'comment.html', {'form': form})
 
@@ -76,4 +87,4 @@ class MakingComments(View):
 class CommentDelete(View):
     def post(self, request, id):
         models.BlogComment.objects.get(id=id).delete()
-        return redirect("home")
+        return redirect("admin")
