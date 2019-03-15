@@ -6,6 +6,7 @@ class BlogPost(models.Model):
     image = models.URLField()
     title = models.TextField()
     author = models.TextField()
+    companyName = models.TextField()
     postion = models.TextField()
     benefits = models.TextField()
     streetNum = models.IntegerField()
@@ -20,6 +21,7 @@ class BlogPost(models.Model):
         return '''
         Image: {}
         Title: {}
+        Company Name: {}
         Job Desciption: {}
         Postion: {}
         Benefits: {}
@@ -31,17 +33,18 @@ class BlogPost(models.Model):
         Author: {}
         Date: {}
         
-        '''.format(self.image, self.title, self.body, self.postion,
-                   self.benefits, self.streetName, self.streetNum,
-                   self.townName, self.state, self.zipCode, self.author,
-                   self.date)
+        '''.format(self.image, self.title, self.companyName, self.body,
+                   self.postion, self.benefits, self.streetName,
+                   self.streetNum, self.townName, self.state, self.zipCode,
+                   self.author, self.date)
 
     @staticmethod
-    def submit_post(image, title, author, postion, benefits, streetName,
-                    streetNum, townName, state, zipCode, body):
+    def submit_post(image, title, companyName, author, postion, benefits,
+                    streetName, streetNum, townName, state, zipCode, body):
         BlogPost(
             image=image,
             title=title,
+            companyName=companyName,
             author=author,
             postion=postion,
             benefits=benefits,

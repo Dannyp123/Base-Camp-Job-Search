@@ -8,6 +8,9 @@ class BlogPostForm(forms.Form):
     title = forms.CharField(
         label="Job Title:",
         widget=forms.TextInput(attrs={'class': 'form-control mb-3'}))
+    companyName = forms.CharField(
+        label="Company Name:",
+        widget=forms.TextInput(attrs={'class': 'form-control mb-3'}))
     author = forms.CharField(
         label="Employer Name:",
         widget=forms.TextInput(attrs={'class': 'form-control mb-5'}))
