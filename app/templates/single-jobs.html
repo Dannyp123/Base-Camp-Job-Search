@@ -27,8 +27,11 @@
 <div class="container">
     <div class="card my-4">
         <div class="card-body">
-            <h1 class="text-dark pb-1">{{ job_post.title }}</h1>
-            <h4 class="text-dark">Address: <p>{{ job_post.streetNum}} {{ job_post.streetName}} {{job_post.townName}}
+            <div class="d-flex">
+                <img class="indivImg" src="{{ job_post.image }}" alt="Image">
+                <h1 class="text-dark">{{ job_post.title }}</h1>
+            </div>
+            <h4 class="text-dark">Address:<p>{{ job_post.streetNum}} {{ job_post.streetName}} {{job_post.townName}}
                     {{job_post.state}},
                     {{ job_post.zipCode}}</p>
                 <p></p>
@@ -42,18 +45,19 @@
             <a href="{% url 'jobs' %}" type="button" class="btn btn-success">Back</a>
         </div>
     </div>
-    {% if post.blogcomment_set.all|length == 0 %}
-    <h3 class="text-danger text-center"><u class="text-danger font-weight-bold mt-2">No Comments</u></h3>
+    {% if job_post.blogcomment_set.all|length == 0 %}
+    <h3 class="text-danger text-center my-3"><u class="text-danger font-weight-bold">No Comments</u></h3>
     {% else %}
-    <h3 class="text-center text-style-underlined"><u class="font-weight-bold">Comments</u></h3>
+    <h3 class="text-center my-3"><u class="font-weight-bold">Comments</u></h3>
     {% endif %}
-    <hr>
 
-    {% for c in post.blogcomment_set.all %}
-    <div class="text-center">
-        <h4 class="p-3">Title: {{ c.title }}</h4>
-        <h5 class="p-3">By: {{ c.author }} - {{ c.date }}</h5>
-        <p class="p-3">{{c.body}}</p>
+    {% for c in job_post.blogcomment_set.all %}
+    <div class="card mb-4">
+        <div class="card-body text-center">
+            <h4 class="p-3">Title: {{ c.title }}</h4>
+            <h5 class="p-3">By: {{ c.author }} - {{ c.date }}</h5>
+            <p class="p-3">{{c.body}}</p>
+        </div>
     </div>
     <!-- <hr> -->
     {% endfor %}
