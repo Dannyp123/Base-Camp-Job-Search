@@ -21,6 +21,8 @@ urlpatterns = [
     path("jobs/", views.JobPage.as_view(), name="jobs"),
     path("admin/", views.AdminPage.as_view(), name="admin"),
     path("students", views.Students.as_view(), name="students"),
+    path(
+        "jobs/<int:id>", views.IndivdualJobPage.as_view(), name="single-jobs"),
     path('posts/create/', views.NewPostCreate.as_view(), name='new-post'),
     path('posts/<int:id>/', views.BlogPostDetail.as_view(), name='blog-post'),
     path(

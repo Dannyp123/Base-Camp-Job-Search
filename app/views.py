@@ -33,6 +33,12 @@ class JobPage(View):
             {"job_post": models.BlogPost.objects.all().order_by('-date')})
 
 
+class IndivdualJobPage(View):
+    def get(self, request, id):
+        return render(request, "single-jobs.html",
+                      {'job_post': models.BlogPost.objects.get(id=id)})
+
+
 class Students(View):
     def get(self, request):
         return render(request, "students.html")
