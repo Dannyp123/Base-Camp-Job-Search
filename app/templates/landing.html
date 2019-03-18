@@ -31,13 +31,41 @@
 <div class="container">
     <div class="card my-5">
         <div class="card-header">
-            <h1 class="text-dark text-center">Welcome</h1>
+            <h1 class="text-dark text-center">About</h1>
         </div>
         <div class="card-body">
             <p class="text-center">
-                Welcome to the Base Camp Job Landing Page. This is the page that takes you to the employer side and employee side. If you go to the employer side, you can make job post, delete job post, and comment on existing job posts.
-                If you go to the employee side, you can only see jobs, comments that belong to that job post, and their details. Although, you can go see the employee side through the employer side. This is just to make sure that the employee side is still functioning properly. There is also a link to the Student Portfolio's page. This is a page that gives the user a short about Base Camp, and a link to every 2019 student's portfolio. You can go check out each student and see their projects, contact information and alot more.
+                Located in Water Valley, MS, Base Camp Coding Academy (BCCA) is a hands-on, challenging and fun
+                program, designed to train students to be software developers in 12 months.
+
+                In a small classroom setting, you will work with real world technologies to learn the fundamentals of
+                coding, app development and the life leadership skills you will need to be successful in your career
+                and competitive in the job market.
             </p>
+        </div>
+    </div>
+</div>
+<div id="jobBox" class="container">
+    <div class="container card mr-3 mb-3">
+        <div class="card-body">
+            <div class="mb-4">
+                <h3>Want to check out future jobs?</h3>
+            </div>
+            <div class="d-flex justify-content-center">
+                <a href="{% url 'jobs' %}" type="button" class="btn btn-success">Click
+                    Here</a>
+            </div>
+        </div>
+    </div>
+    <div class="container card mb-3">
+        <div class="card-body">
+            <div class="mb-4">
+                <h3>Want to add a new job?</h3>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <a href="{% url 'admin' %}" type="button" class="btn btn-success">Add job</a>
+            </div>
         </div>
     </div>
 </div>
