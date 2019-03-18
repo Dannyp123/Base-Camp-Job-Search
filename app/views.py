@@ -20,7 +20,7 @@ class AdminPage(View):
             query_list = query_list.filter(
                 Q(title__contains=query) | Q(author__contains=query)
                 | Q(state__contains=query) | Q(companyName__contains=query)
-                | Q(body__contains=query)).distinct()
+                | Q(townName__contains=query)).distinct()
 
         return render(request, "admin.html",
                       {"job_post": query_list.order_by("-date")})
