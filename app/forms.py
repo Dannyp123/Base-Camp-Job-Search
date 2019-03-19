@@ -82,7 +82,6 @@ class BlogPostForm(forms.Form):
             'placeholder': "Description"
         }))
 
-
 class BlogCommentForm(forms.Form):
     title = forms.CharField(
         label="Comment Title:",

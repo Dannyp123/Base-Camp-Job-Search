@@ -75,6 +75,8 @@ class NewPostCreate(View):
             return render(request, 'new-post.html', {'form': form})
 
 
+# 
+
 class BlogPostDetail(View):
     def get(self, request, id):
         return render(request, 'blog-post.html',
