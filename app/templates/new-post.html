@@ -36,7 +36,12 @@
                 Image URL: {{form.image}}
                 Job Title: {{form.title}}
                 Company Name: {{form.companyName}}
+                Salary: {{form.salary}}
                 Post's Author: {{form.author}}
+                <hr>
+                <h4 class="text-left text-dark pb-2">Primary Contact Information</h4>
+                Email: {{form.email}}
+                Phone Number: {{form.phoneNum}}
                 <hr>
                 <h4 class="text-left text-dark pb-2">Business Address</h4>
                 Street Number: {{form.streetNum}}
@@ -54,7 +59,7 @@
 
                 <div class="d-flex justify-content-around">
                     <button type="submit" class="btn btn-success my-3">Submit</button>
-                    <a role="button" href="{% url 'admin' %}" class="btn btn-primary text-white my-3">Go Back</a>
+                    <a role="button" href="{% url 'landing' %}" class="btn btn-primary text-white my-3">Go Back</a>
                 </div>
             </form>
         </div>

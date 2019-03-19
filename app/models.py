@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import RegexValidator
 
 
 # Create your models here.
@@ -7,8 +8,13 @@ class BlogPost(models.Model):
     title = models.TextField()
     author = models.TextField()
     companyName = models.TextField()
+    salary = models.IntegerField()
     postion = models.TextField()
     benefits = models.TextField()
+    email = models.EmailField()
+    phone_regex = RegexValidator(
+        regex=r'^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$')
+    phoneNum = models.CharField(validators=[phone_regex], max_length=10)
     streetNum = models.IntegerField()
     streetName = models.TextField()
     townName = models.TextField()
@@ -22,9 +28,12 @@ class BlogPost(models.Model):
         Image: {}
         Title: {}
         Company Name: {}
+        Salary: {}
         Job Desciption: {}
         Postion: {}
         Benefits: {}
+        Email: {}
+        Phone Number: {}
         Street Name: {}
         Street Num: {}
         Town Name: {}
@@ -33,21 +42,26 @@ class BlogPost(models.Model):
         Author: {}
         Date: {}
         
-        '''.format(self.image, self.title, self.companyName, self.body,
-                   self.postion, self.benefits, self.streetName,
-                   self.streetNum, self.townName, self.state, self.zipCode,
-                   self.author, self.date)
+        '''.format(self.image, self.title, self.companyName, self.salary,
+                   self.body, self.postion, self.benefits, self.email,
+                   self.phoneNum, self.streetName, self.streetNum,
+                   self.townName, self.state, self.zipCode, self.author,
+                   self.date)
 
     @staticmethod
-    def submit_post(image, title, companyName, author, postion, benefits,
-                    streetName, streetNum, townName, state, zipCode, body):
+    def submit_post(image, title, companyName, salary, author, postion,
+                    benefits, email, phoneNum, streetName, streetNum, townName,
+                    state, zipCode, body):
         BlogPost(
             image=image,
             title=title,
             companyName=companyName,
+            salary=salary,
             author=author,
             postion=postion,
             benefits=benefits,
+            email=email,
+            phoneNum=phoneNum,
             streetName=streetName,
             streetNum=streetNum,
             townName=townName,

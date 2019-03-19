@@ -54,18 +54,22 @@ class NewPostCreate(View):
             image = form.cleaned_data['image']
             title = form.cleaned_data['title']
             companyName = form.cleaned_data['companyName']
+            salary = form.cleaned_data['salary']
             author = form.cleaned_data['author']
             postion = form.cleaned_data["postion"]
             benefits = form.cleaned_data["benefits"]
+            email = form.cleaned_data['email']
+            phoneNum = form.cleaned_data['phoneNum']
             streetName = form.cleaned_data["streetName"]
             streetNum = form.cleaned_data["streetNum"]
             townName = form.cleaned_data["townName"]
             state = form.cleaned_data["state"]
             zipCode = form.cleaned_data["zipCode"]
             body = form.cleaned_data['body']
-            models.BlogPost.submit_post(
-                image, title, companyName, author, postion, benefits,
-                streetName, streetNum, townName, state, zipCode, body)
+            models.BlogPost.submit_post(image, title, companyName, salary,
+                                        author, postion, benefits, email,
+                                        phoneNum, streetName, streetNum,
+                                        townName, state, zipCode, body)
             return redirect('admin')
         else:
             return render(request, 'new-post.html', {'form': form})
