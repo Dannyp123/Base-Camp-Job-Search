@@ -31,14 +31,28 @@
                 <img class="indivImg" src="{{ job_post.image }}" alt="Image">
                 <h1 class="text-dark">{{ job_post.title }}</h1>
             </div>
-            <h4 class="text-dark">Address:<p>{{ job_post.streetNum}} {{ job_post.streetName}} {{job_post.townName}}
-                    {{job_post.state}},
-                    {{ job_post.zipCode}}</p>
-                <p></p>
-            </h4>
-            <h3 class="text-dark pb-2">{{ job_post.author }} - {{ job_post.date }}</h3>
-            <h4 class="text-dark pb-2">Benefits: {{ job_post.benefits }}</h4>
+            <h4 class="">Address</h4>
+            <p>{{ job_post.streetNum}} {{ job_post.streetName}} {{job_post.townName}}
+                {{job_post.state}},
+                {{ job_post.zipCode}}
+            </p>
+            <hr>
+            <h4>Date Posted</h4>
+            <p>{{ job_post.date }}</p>
+            <hr>
+            <h4 class="pb-2">Benefits</h4>
+            <p>{{ job_post.benefits }}</p>
+            <hr>
+            <h4 class="pb-2">Salary</h4>
+            <p>{{ job_post.salary }}</p>
+            <hr>
+            <h4 class="pb-2">Contact Information</h4>
+            <p>Name: {{ job_post.author }} </p>
+            <p>Phone Number: {{ job_post.phoneNum }}</p>
+            <p class="pb-4">Email: {{ job_post.email }}</p>
+            <hr>
 
+            <h4 class="pb-2">Job Description:</h4>
             <p class="pb-4">
                 {{ job_post.body }}
             </p>
