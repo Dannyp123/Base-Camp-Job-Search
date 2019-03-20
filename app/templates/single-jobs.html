@@ -28,7 +28,9 @@
     <div class="card my-4">
         <div class="card-body">
             <div class="d-flex">
-                <img class="indivImg" src="{{ job_post.image }}" alt="Image">
+                <div class="userImgContainer">
+                    <img class="userImg" src="{{ job_post.image }}" alt="Image">
+                </div>
                 <h1 class="text-dark">{{ job_post.title }}</h1>
             </div>
             <h4 class="">Address</h4>
@@ -56,7 +58,9 @@
             <p class="pb-4">
                 {{ job_post.body }}
             </p>
-            <a href="{% url 'jobs' %}" type="button" class="btn btn-success">Back</a>
+            <form action="{% url 'jobs' %}">
+                <button class="btn btn-primary">Back</button>
+            </form>
         </div>
     </div>
     {% if job_post.blogcomment_set.all|length == 0 %}
