@@ -38,6 +38,7 @@
 
                 <h4 class="text-left text-dark pb-2">Job Information</h4>
                 Image URL: {{form.image}}
+                {{form.image.errors}}
                 Job Title: {{form.title}}
                 Company Name: {{form.companyName}}
                 Salary: {{form.salary}}
@@ -45,7 +46,9 @@
                 <hr>
                 <h4 class="text-left text-dark pb-2">Primary Contact Information</h4>
                 Email: {{form.email}}
+                {{form.email.errors}}
                 Phone Number: {{form.phoneNum}}
+                {{form.phoneNum.errors}}
                 <hr>
                 <h4 class="text-left text-dark pb-2">Business Address</h4>
                 Street Number: {{form.streetNum}}
