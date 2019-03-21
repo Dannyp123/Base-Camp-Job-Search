@@ -61,11 +61,6 @@ class BlogPostForm(forms.Form):
             'class': 'form-control mb-3',
             'placeholder': "OK"
         }))
-    zipCode = forms.IntegerField(
-        widget=forms.TextInput(attrs={
-            'class': 'form-control mb-5',
-            'placeholder': "99834"
-        }))
     postion = forms.CharField(
         widget=forms.TextInput(attrs={
             'class': 'form-control mb-3',
@@ -81,7 +76,6 @@ class BlogPostForm(forms.Form):
             'class': 'form-control mb-3',
             'placeholder': "Description"
         }))
-
 class BlogCommentForm(forms.Form):
     title = forms.CharField(
         label="Comment Title:",

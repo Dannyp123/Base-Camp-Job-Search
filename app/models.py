@@ -19,7 +19,6 @@ class BlogPost(models.Model):
     streetName = models.TextField()
     townName = models.TextField()
     state = models.TextField(max_length=2)
-    zipCode = models.IntegerField()
     body = models.TextField()
     date = models.DateField(auto_now_add=True)
 
@@ -38,20 +37,19 @@ class BlogPost(models.Model):
         Street Num: {}
         Town Name: {}
         State: {} 
-        Zip Code: {}
         Author: {}
         Date: {}
         
         '''.format(self.image, self.title, self.companyName, self.salary,
                    self.body, self.postion, self.benefits, self.email,
                    self.phoneNum, self.streetName, self.streetNum,
-                   self.townName, self.state, self.zipCode, self.author,
+                   self.townName, self.state, self.author,
                    self.date)
 
     @staticmethod
     def submit_post(image, title, companyName, salary, author, postion,
                     benefits, email, phoneNum, streetName, streetNum, townName,
-                    state, zipCode, body):
+                    state, body):
         BlogPost(
             image=image,
             title=title,
@@ -66,7 +64,6 @@ class BlogPost(models.Model):
             streetNum=streetNum,
             townName=townName,
             state=state,
-            zipCode=zipCode,
             body=body).save()
 
 
