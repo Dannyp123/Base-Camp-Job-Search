@@ -44,6 +44,11 @@
             <button type="submit" class="ml-3 mb-4 btn btn-primary"><i class="fas fa-search"></i> Search</button>
         </div>
     </form>
+    <div class="container">
+        <a href="{% url 'landing' %}">
+            <button class="btn btn-primary"><i class="fas fa-home"></i> Home</button>
+        </a>
+    </div>
     <div class="text-left mx-3">
         {% if job_post|length == 0 %}
         <h1 class="text-danger text-center">Sorry, there are no new jobs.</h1>
