@@ -13,5 +13,5 @@ This project is an independent based project. We have to use a framework of our 
 
   # User/Employee:
 
-  This side of the application is souly for the user side. The user can only see the job postings and the pre-exsiting comments. They can also go view the 2019 base camp studnet page.
-  The page has links to each student's portfolios.
+  This side of the application is souly for the user side. The user can only see the job postings and the pre-exsiting comments. They can also go view the 2019 Base Camp students page.
+  This page has links to each student's portfolios.
