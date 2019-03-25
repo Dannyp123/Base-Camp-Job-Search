@@ -29,9 +29,9 @@
         <div class="card-body">
             <div class="d-flex">
                 <div class="userImgContainer">
-                    <img class="userImg" src="{{ job_post.image }}" alt="Image">
+                    <img class="userImg" src="{{ job_post.image }}" alt="No-Image">
                 </div>
-                <h1 class="text-dark"><i>{{ job_post.title }}</i></h1>
+                <h1 class="pl-2 text-dark"><i>{{ job_post.title }}</i></h1>
             </div>
             <h4 class="">Address</h4>
             <p>{{ job_post.streetNum}} {{ job_post.streetName}} {{job_post.townName}}
@@ -45,7 +45,7 @@
             <p>{{ job_post.benefits }}</p>
             <hr>
             <h4 class="pb-2">Salary</h4>
-            <p>{{ job_post.salary }}</p>
+            <p>$ {{ job_post.salary }}</p>
             <hr>
             <h4 class="pb-2">Contact Information</h4>
             <p>Name: {{ job_post.author }} </p>
@@ -53,7 +53,7 @@
             <p class="pb-4">Email: {{ job_post.email }}</p>
             <hr>
 
-            <h4 class="pb-2">Job Description:</h4>
+            <h4 class="pb-2">Job Description</h4>
             <p class="pb-4">
                 {{ job_post.body }}
             </p>
